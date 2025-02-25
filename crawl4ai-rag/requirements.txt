@@ -1,4 +1,5 @@
 Crawl4AI==0.4.248
 pydantic-ai==0.0.26
-streamlist==1.42.2
+streamlit==1.42.2
 supabase==2.13.0
+watchdog==6.0.0
