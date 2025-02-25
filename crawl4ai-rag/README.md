@@ -22,7 +22,6 @@ supabase start
 
 Once your Supabase project is running, you can access the Studio panel at [localhost:54323](http://localhost:54323/). From the Studio, open the SQL Editor. Run the script `create_site_pages.sql`. This script will create the `site_pages` table and a `match_site_pages` function.
 
-
 ### OpenAI API Keys
 
 Generate a new API key from the OpenAI dashboard. Add this OpenAI key to the `.env` file.
