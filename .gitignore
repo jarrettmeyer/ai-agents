@@ -1,0 +1,10 @@
+# IDE
+.vscode/
+
+.env
+
+# Python
+.venv/
+
+# Supabase
+supabase/
