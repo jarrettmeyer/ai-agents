@@ -10,7 +10,7 @@ from ollama import AsyncClient as AsyncOllamaClient, ChatResponse, Message
 load_dotenv()
 
 # Assign variables from the environment.
-llm_model = os.getenv("LLM_MODEL")
+llm_model = os.getenv("LLM_MODEL", "deepseek-r1:7b")
 ollama_host = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 
 # Create a new client instance.
@@ -20,7 +20,13 @@ ollama_client = AsyncOllamaClient(
 
 
 async def stream_chat_response(message: Message):
-    chat_response: ChatResponse = await ollama_client.chat(model=llm_model, messages=[message], stream=True)
+    """Stream chat response from the model."""
+    messages = st.session_state.messages + [message]
+    chat_response: ChatResponse = await ollama_client.chat(
+        model=llm_model,
+        messages=messages,
+        stream=True,
+    )
 
     text = ""
     placeholder = st.empty()
