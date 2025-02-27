@@ -12,7 +12,7 @@ from typing import Any, Literal
 
 
 load_dotenv()
-debug(os.getenv("LOGFIRE_IGNORE_NO_CONFIG"))
+# debug(os.getenv("LOGFIRE_IGNORE_NO_CONFIG"))
 
 # Get the location.
 try:

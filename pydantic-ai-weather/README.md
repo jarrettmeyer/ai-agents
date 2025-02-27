@@ -1,5 +1,13 @@
 # Pydantic AI Weather Agent
 
+A simple agent that can use tools to get the current weather for a given location. Code was adapted from the [Weather agent](https://ai.pydantic.dev/examples/weather-agent/) example on the Pydantic AI website.
+
+```bash
+python weather_agent.py "Chicago, IL"
+
+# => The current weather in Chicago, IL, is 36.7°F with 38% cloud cover, 94% humidity, and a wind speed of 7 mph.
+```
+
 1. You will need an OpenAI API key to run this agent.
 
 2. You will need a Tomorrow Weather API key to get weather data. This service provides a limited-use free tier.
