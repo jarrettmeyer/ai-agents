@@ -12,7 +12,6 @@ from typing import Any, Literal
 
 
 load_dotenv()
-# debug(os.getenv("LOGFIRE_IGNORE_NO_CONFIG"))
 
 # Get the location.
 try:
@@ -46,7 +45,8 @@ with open("system_prompt.md") as f:
 with open("weather_codes.json") as f:
     weather_codes = json.load(f)
 
-
+# Create the weather agent.
+# TODO: Use ollama running locally, instead of OpenAI.
 weather_agent = Agent(
     model=os.getenv("LLM_MODEL", "openai:gpt-4o"),
     system_prompt=system_prompt,
@@ -58,6 +58,8 @@ weather_agent = Agent(
 @weather_agent.tool
 async def get_lat_lon(c: RunContext[WeatherDeps], address: str) -> LatLon:
     """Get the latitude and longitude of an address.
+
+    This function is registered as a tool for the weather agent.
 
     Args:
         c: Run context.
@@ -91,6 +93,8 @@ async def get_lat_lon(c: RunContext[WeatherDeps], address: str) -> LatLon:
 async def get_weather(c: RunContext[WeatherDeps], lat: float, lon: float) -> Any:
     """Get the current weather at a given latitude and longitude.
 
+    This function is registered as a tool for the weather agent.
+
     Args:
         c: Run context.
         lat: Location latitude.
@@ -121,6 +125,8 @@ async def get_weather(c: RunContext[WeatherDeps], lat: float, lon: float) -> Any
 @weather_agent.tool
 def lookup_weather_code(c: RunContext[WeatherDeps], weather_code: int) -> str:
     """Lookup the friendly text description for a weather code.
+
+    This function is registered as a tool for the weather agent.
 
     Args:
         c: Run context.
