@@ -126,12 +126,16 @@ async def get_weather(c: RunContext[WeatherDeps], lat: float, lon: float) -> Any
 def lookup_weather_code(c: RunContext[WeatherDeps], weather_code: int) -> str:
     """Lookup the friendly text description for a weather code.
 
+    Example:
+        lookup_weather_code(context, 1000) -> "Clear, Sunny"
+
     This function is registered as a tool for the weather agent.
 
     Args:
         c: Run context.
         weather_code: Weather code to lookup.
     """
+
     return weather_codes.get(str(weather_code), "Unknown")
 
 
