@@ -10,9 +10,12 @@ from pydantic_ai.models.openai import OpenAIModel
 
 load_dotenv(verbose=True)
 
+llm_model = os.getenv("LLM_MODEL", "llama3.2")
+ollama_host = os.getenv("OLLAMA_HOST", "http://localhost:11434/v1")
+
 model = OpenAIModel(
-    model_name=os.getenv("LLM_MODEL"),
-    base_url=os.getenv("OLLAMA_HOST"),
+    model_name=llm_model,
+    base_url=ollama_host,
 )
 
 agent = Agent(model=model)
