@@ -1,0 +1,2 @@
+devtools==0.12.2
+pydantic-ai==0.0.26
