@@ -2,6 +2,7 @@ import asyncio
 import os
 import streamlit as st
 
+from devtools import debug
 from dotenv import load_dotenv
 from ollama import AsyncClient as AsyncOllamaClient, ChatResponse, Message
 
@@ -44,7 +45,7 @@ async def main():
 
     # Initialize message history in session state.
     if "messages" not in st.session_state:
-        print(f"initialize messages in session state")
+        debug(f"initialize messages in session state")
         st.session_state.messages = []
 
     # Display all messages so far.
