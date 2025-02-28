@@ -19,14 +19,7 @@ This example runs [Pydantic AI](https://ai.pydantic.dev/) with [Ollama](https://
     pip install -r requirements.txt
     ```
 
-5. Set `LOGFIRE_IGNORE_NO_CONFIG=1` to ignore the missing configuration.
-    ```bash
-    export LOGFIRE_IGNORE_NO_CONFIG=1
-    ```
-
-    **TODO:** Why doesn't this work when setting this value in the `.env` file?
-
-6. Run the Python script.
+5. Run the Python script.
     ```bash
     python ollama_example.py "Tell me about yourself."
     ```
