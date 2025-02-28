@@ -1,4 +1,5 @@
 import asyncio
+import logfire
 import os
 import sys
 
@@ -9,6 +10,9 @@ from pydantic_ai.models.openai import OpenAIModel
 
 
 load_dotenv(verbose=True)
+
+# Send logs only if LOGFIRE_TOKEN is environment variable is set.
+logfire.configure(send_to_logfire="if-token-present")
 
 llm_model = os.getenv("LLM_MODEL", "llama3.2")
 ollama_host = os.getenv("OLLAMA_HOST", "http://localhost:11434/v1")
